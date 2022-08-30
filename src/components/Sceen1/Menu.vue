@@ -29,7 +29,7 @@
                 <div class="avatar_user"></div>
                 <div class="detail_user">
                     <div class="name_user">
-                        <p>Đào Vĩnh Bảo Phúc</p>
+                        <p> {{ fullname }}</p>
                     </div>
                     <div class="name_tags">
                         <ul>

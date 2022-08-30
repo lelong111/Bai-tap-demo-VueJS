@@ -41,11 +41,10 @@ export default {
             var md5 = require('md5');
 
             var check = false;
-            var fullname = '';
             this.listUser.forEach((e) =>{
                 if (this.user == e.email && md5(this.pass) == e.password) {
                     check = true;
-                    fullname = e.fullname;
+                    localStorage.setItem("fullname", e.fullname);
                 }
             })
             if (check == true) {
@@ -53,9 +52,9 @@ export default {
                     localStorage.setItem("email", this.user)
                     localStorage.setItem("password", this.pass)
                     localStorage.setItem("check", true)
-                    localStorage.setItem("fullname", fullname)
+                    localStorage.setItem("fullname")
                 }
-                console.log(fullname)
+                console.log(localStorage.getItem("fullname"))
                 alert ("Thanh cong")
                 this.$router.push({path: '/home'})
                 
