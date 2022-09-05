@@ -1,5 +1,5 @@
 import LogIn from '../components/LogIn.vue';
-import Test from '../components/Home.vue';
+import Home from '../components/Home.vue';
 import { createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
@@ -15,9 +15,20 @@ const routes = [
     },
     {
         path: '/home',
-        name: 'Test',
-        component: Test,
-    }
+        // name: 'Home',
+        component: Home,
+        children: [
+            {
+                path: 'list-user',
+                redirect: '/home'
+            },
+            {
+                path: 'list-user',
+                name: 'Home',
+                component: 'Home',
+            }
+        ],
+    },
 ]
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),

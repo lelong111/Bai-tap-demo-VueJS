@@ -86,16 +86,16 @@ export default {
 <style scoped>
 .LogIn_Page {
     width: 100%;
-    height: 753px;
+    height: 1080px;
     position: relative;
 }
 .LogIn_Form {
-    margin-left: 10%;
+    margin-left: 15%;
     position: absolute;
     top: 49.9%;
     transform: translateY(-50%);
-    width: 40%;
-    height: 80%;
+    width: 37.5%;
+    height: 74.7%;
     z-index: 1;
     background-color: #FFFCFC;
     border-radius: 30px;
@@ -105,26 +105,27 @@ export default {
     width: 50%;
     height: 80%;
     position: absolute;
-    left: 40%;
-    top: 10%;
+    left: 38.4%;
+    top: 12.6%;
     border-radius: 30px;
 }
 .image img{
     width: 100%;
-    height: 100%;
+    height: 93.3%;
 }
 .content_login {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
 }
 .title_form > p {
     color: #F57212;
     font-size: 43px;
-    margin-top: 50px;
-    line-height: 64.5px;
+    margin-top: 9%;
+    line-height: 64px;
     font-family: 'Poppins';
     font-weight: 400;
-    margin-bottom: 35px;
+    margin-bottom: 12.5%;
+    font-style: normal;
 }
 .textbox_login {
     font-family: 'Roboto';
@@ -140,12 +141,12 @@ export default {
     color:  #0070D2;
 }
 .textbox_login > input {
-    margin-top: 20px;
+    margin-top: 23px;
     width: 100%;
-    height: 50px;
+    height: 72px;
     border-radius: 15px;
-    /* font-size: 18px; */
-    padding-left: 20px;
+    font-size: 18px;
+    padding-left: 32px;
     box-sizing: border-box;
     background: #FFFCFC;
     border: 1px solid #CECDCD;
@@ -154,11 +155,13 @@ export default {
 }
 ::placeholder {
     margin-left: 5%;
-    line-height: 20px;
+    line-height: 33px;
+    font-style: normal;
+    font-family: 'Roboto';
     color: #CECDCD;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 28px;
 }
 .btn_login {
     display: block;
@@ -177,7 +180,7 @@ export default {
 .btn_login > button {
     margin-top: 20px;
     width: 100%;
-    height: 50px;
+    height: 72px;
     box-sizing: border-box;
     background: #0070D2;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
@@ -185,9 +188,140 @@ export default {
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 28px;
+    line-height: 33px;
+    font-style: normal;
+    font-weight: 400;
 }
 .btn_login > button:hover {
     border: 1px solid black
 }
 
+
+
+/* @media only screen and (min-height: 900px){
+    .LogIn_Page  {
+        height: 900px;
+    }
+} */
+@media only screen and (height: 900px) and (width: 1600px){
+    .LogIn_Page {
+        height: 900px;
+    }
+    .title_form > p {
+        margin-bottom: 35px;
+    }
+    .textbox_login > input {
+        height: 55px;
+    }
+    .title_form > p {
+        margin-top: 60px;
+    }
+    .btn_login > button {
+        height: 55px;
+    }
+}
+@media only screen and (width: 1280px) and (height: 1080px) {
+    .LogIn_Page  {
+        height: 1080px;
+    }
+    .LogIn_Form {
+        height: 70%;
+    }
+    .title_form > p {
+        font-size: 35px;
+    }
+    .image {
+        top: 15%;
+    }
+    .image img {
+        height: 87.4%;
+    }
+    ::placeholder {
+        font-size: 20px;
+    }
+}
+@media only screen and (width: 1280px) and (height: 720px) {
+    .LogIn_Page {
+        height: 720px;
+    }
+    .title_form > p {
+        font-size: 33px;
+        margin-bottom: 4%;
+    }
+    .textbox_login > input {
+        height: 50px;
+    }
+    .btn_login > button {
+        height: 50px;
+    }
+    ::placeholder {
+        font-size: 18px;
+    }
+}
+@media only screen and (width: 960px) and (height: 540px) {
+    .LogIn_Page {
+        height: 540px;
+    }
+    .title_form > p {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .textbox_login > input {
+        height: 40px;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .btn_login > button {
+        height: 40px;
+    }
+    ::placeholder {
+        font-size: 15px;
+    }
+    .textbox_login>label {
+        font-size: 20px;
+    }
+}
+@media only screen and (width: 640px) and (height: 360px) {
+    .LogIn_Page {
+        height: 360px;
+    }
+    .title_form > p {
+        margin-top: 25px;
+        font-size: 15px;
+        margin-bottom: 8px;
+        line-height: 15px;
+    }
+    .textbox_login {
+        margin-top: 2px;
+    }
+    .textbox_login > input {
+        height: 25px;
+        margin-top: 3px;
+        font-size: 12px;
+        line-height: 20px;
+        padding-left: 18px;
+      
+    }
+    .btn_login > button {
+        height: 25px;
+        font-size: 13px;
+        line-height: 0;
+    }
+    .textbox_login > input::placeholder {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .content_login div:nth-child(3){
+        margin-top: 2px
+    }
+    .textbox_login>label {
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .btn_login label {
+        line-height: 18px;
+        font-size: 12px;
+    }
+}
 </style>

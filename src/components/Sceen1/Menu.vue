@@ -125,12 +125,13 @@ export default {
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
-    margin-top: 16px;
+    margin-top: 25px;
 }
 .menu_user_3 {
     width: 100%;
     height: 100px;
     margin-left: 20px;
+    margin-top: 10%;
 }
 .avatar_user{
     width: 100px;
@@ -219,6 +220,7 @@ export default {
 }
 .icon_show_info {
     margin-top: 60px;
+    margin-left: 30px;
 }
 .icon_show_info ul {
     list-style-type: none;
@@ -226,8 +228,15 @@ export default {
 .icon_show_info ul li {
     margin-bottom: 30px;
 }
+
 .icon_show_info ul li label{
     margin-left: 32px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    display: inline-block;
+    transform: translateY(-7px)
 }
 </style>
   

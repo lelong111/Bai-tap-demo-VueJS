@@ -24,7 +24,7 @@ export default {
 <style>
 .menu-left {
     width: 80px;
-    height: 753px;
+    height: 94%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -38,7 +38,7 @@ export default {
 }
 .menu-left  .icon-menu-top div{
     width: 80px;
-    height: 60px;
+    height: 80px;
     position: relative;
     margin-bottom: 5px;
 }
@@ -52,9 +52,6 @@ export default {
 }
 .menu-left  .icon-menu-logout{
     height: 60%;
-    /* margin-bottom: 60px; */
-
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
     position: relative;
     background-color: #398CDA;
 }
@@ -62,7 +59,18 @@ export default {
     position:absolute;
     max-width: 50px;
     max-height: 53px;
-    top: 70%;
+    top: 80%;
     left: 15%
+}
+@media only screen and (min-height: 1080px) {
+  .menu-left{
+    height: 92.9%;
+  }
+  .menu-left  .icon-menu-top {
+    height: 35%;
+  }
+  .menu-left  .icon-menu-logout {
+    height: 65%;
+  }
 }
 </style>
