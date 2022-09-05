@@ -2,10 +2,10 @@
   <div class="menu-left">
 
     <div class="icon-menu-top">
-        <div><img src='../../assets/Vector.png'/></div>
-        <div><img src='../../assets/Vector1.png'/></div>
-        <div><img src='../../assets/Vector2.png'/></div>
-        <div><img src='../../assets/Vector3.png'/></div>
+        <div><router-link to="list-user"><img src='../../assets/Vector.png'/></router-link></div>
+        <div><router-link to="menu-null"><img src='../../assets/Vector1.png'/></router-link></div>
+        <div><router-link to="menu-null"><img src='../../assets/Vector2.png'/></router-link></div>
+        <div><router-link to="menu-null"><img src='../../assets/Vector3.png'/></router-link></div>
     </div>
     <div class="icon-menu-logout">
         <div><img src='../../assets/logout.png'/></div>
@@ -59,18 +59,18 @@ export default {
     position:absolute;
     max-width: 50px;
     max-height: 53px;
-    top: 80%;
+    top: 83.1%;
     left: 15%
 }
 @media only screen and (min-height: 1080px) {
   .menu-left{
-    height: 92.9%;
+    height: 91%;
   }
   .menu-left  .icon-menu-top {
-    height: 35%;
+    height: 31.7%;
   }
   .menu-left  .icon-menu-logout {
-    height: 65%;
+    height: 68.3%;
   }
 }
 </style>

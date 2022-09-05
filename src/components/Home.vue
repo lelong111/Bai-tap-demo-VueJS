@@ -1,12 +1,25 @@
 <template>
   <div class="container">
     <menu-left />
-    <div class="content">
-      <menu-user />
-      <router-view>
-      {{ this.$route.query.page }}
-      <info-user :listUser="this.listUser" />
+    <div class="menu">
+      <router-view v-if="$route.params.menu == 'menu-null'">
+        <ScreenWhite2 />
       </router-view>
+      <router-view v-else>
+        <div class="content">
+          <menu-user />
+          <router-view v-if="$route.params.test == 'test'">
+            <ScreenWhite />
+          </router-view>
+          <router-view v-else>
+            <info-user :listUser="this.listUser" />
+          </router-view>
+        </div>
+      </router-view>
+      
+
+
+
     </div>
   </div>
 </template>
@@ -15,6 +28,8 @@
 import MenuLeft from './Sceen1/MenuLeft.vue';
 import MenuUser from './Sceen1/Menu.vue';
 import InfoUser from './Sceen1/InfoUser.vue';
+import ScreenWhite from './Sceen1/ScreenWhite.vue';
+import ScreenWhite2 from './Sceen1/ScreenWhite2.vue';
 import axios from 'axios';
 import { ref } from 'vue'
 
@@ -31,10 +46,12 @@ export default {
 
   },
   components: {
-      MenuLeft,
-      MenuUser,
-      InfoUser,
-  },
+    MenuLeft,
+    MenuUser,
+    InfoUser,
+    ScreenWhite,
+    ScreenWhite2
+},
   setup() {
         var listUser = ref([])
         const getUser = async () => {
@@ -54,13 +71,12 @@ export default {
 </script>
 
 <style scoped>
+
 .container {
   display: flex;
   width: 100%;
   height: 930px;
   background: #FFFCFC;
-
-
 }
 .content {
   display: flex;
@@ -69,15 +85,20 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
+
 .menu-left {
-  margin-top: 4%;
+  margin-top: 5%;
 }
 @media only screen and (min-height: 1080px) {
   .container {
     height: 1080px;
   }
   .content {
-    height: 90%;
+    height: 89.6%;
+    margin-top: 5.2%;
+  }
+  .menu-left {
+    margin-top: 5.2%;
   }
 
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="info_user">
     <div class="create_user">
-        <button class="btn_create_user">Tạo người dùng</button>
-        <div class="modal">
+        <!-- <button class="btn btn-info btn-lg btn_create_user">Tạo người dùng</button> -->
+        <!-- <div class="modal">
             <div class="modal-content">
                 <div>
                     <span class="close">&times;</span>
@@ -12,11 +12,58 @@
                     <input type="text"/>
                 </div>
             </div>
+        </div> -->
+        <!-- <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+       <!-- Button trigger modal -->
+       <div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
         </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
     </div>
     <div class="tabbar">
-        <div class="tabbar_1"><router-link to="/home/list-user">Danh sách người dùng</router-link></div>
-        <div class="tabbar_2"><router-link to="/home/list-user">Ghi chú</router-link></div>
+        <div class="tabbar_1"><router-link to="/home/list-users">Danh sách người dùng</router-link></div>
+        <div class="tabbar_2"><router-link to="/home/ghi-chu/test">Ghi chú</router-link></div>
     </div>
     <div class="table-view">
         <table>
@@ -41,28 +88,6 @@
 </template>
 
 <script>
-import $ from "jquery";
-$(document).ready(function () {
-  var modal = $('.modal');
-  var btn = $('.btn_create_user');
-  var span = $('.close');
-
-  btn.click(function () {
-    modal.show();
-  });
-
-  span.click(function () {
-    modal.hide();
-  });
-
-  $(window).on('click', function (e) {
-    if ($(e.target).is('.modal')) {
-      modal.hide();
-    }
-  });
-});
-
-
 export default {
     data() {
         return {
@@ -132,6 +157,12 @@ export default {
 }
 .tabbar .tabbar_1 {
     position: relative;
+    
+}
+.tabbar .tabbar_1:active {
+    border-top: 4px solid #DD7A01;
+}
+.tabbar .tabbar_2:active {
     border-top: 4px solid #DD7A01;
 }
 .tabbar .tabbar_1 a{
@@ -223,7 +254,7 @@ export default {
 
 
 
-.modal {
+/* .modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -257,5 +288,5 @@ export default {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 </style>
