@@ -1,11 +1,11 @@
 <template>
   <div class="menu-left">
 
-    <div class="icon-menu-top">
-        <div><router-link to="list-user"><img src='../../assets/Vector.png'/></router-link></div>
-        <div><router-link to="menu-null"><img src='../../assets/Vector1.png'/></router-link></div>
-        <div><router-link to="menu-null"><img src='../../assets/Vector2.png'/></router-link></div>
-        <div><router-link to="menu-null"><img src='../../assets/Vector3.png'/></router-link></div>
+    <div class="icon-menu-top" id="myDIV">
+        <div class="active" @click="clickme()"><router-link  to="/home/list-users"><img src='../../assets/Vector.png'/></router-link></div>
+        <div @click="clickme()"><router-link to="/home/menu/menu-null"><img src='../../assets/Vector1.png'/></router-link></div>
+        <div @click="clickme()"><router-link to="/home/menu/menu-null"><img src='../../assets/Vector2.png'/></router-link></div>
+        <div @click="clickme()"><router-link to="/home/menu/menu-null"><img src='../../assets/Vector3.png'/></router-link></div>
     </div>
     <div class="icon-menu-logout">
         <div><img src='../../assets/logout.png'/></div>
@@ -14,17 +14,29 @@
 </template>
 
 <script>
-
+  import $ from 'jquery';
 export default {
-    methods: {
+  methods: {
+    clickme() {
+      $(document).ready(function(){
+        $('.icon-menu-top div').click(function(){
+          $('.icon-menu-top div').removeClass("active");
+          $(this).addClass("active");
+      });
+      });
     }
+  }
 }
 </script>
 
-<style>
+<style scoped>
+.active {
+  border-left: 14px solid #DD7A01;
+  box-sizing: border-box;
+}
 .menu-left {
     width: 80px;
-    height: 94%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

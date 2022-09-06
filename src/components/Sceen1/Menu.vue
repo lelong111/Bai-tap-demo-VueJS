@@ -240,10 +240,13 @@ export default {
 }
 @media only screen and (min-height: 1080px) {
   .menu_user {
-    width: 29.8%;
+    width: 505px;
   }
   .menu_user .menu_user_1 .btn_info_user {
     width: 50.9%;
+  }
+  .menu_user_3 {
+    margin-top: 17.1%;
   }
   .menu_user .menu_user_1 .input_search {
     /* widows: 49.5; */

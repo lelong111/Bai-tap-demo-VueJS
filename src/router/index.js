@@ -23,17 +23,17 @@ const routes = [
         children: [
             {
                 path: 'list-users',
-                component: Home,
+                redirect: '/home'
             },
             {
                 path: 'ghi-chu/:test',
                 component: ScreenWhite,
             },
-            { 
-                path: ':menu', 
-                name: 'ScreenWhite2', 
-                component: ScreenWhite2 
-            },
+            {
+                path: 'menu/:menu',
+                component: ScreenWhite2,
+            }
+            
         ],
     },
     {
@@ -41,6 +41,9 @@ const routes = [
         name: 'Loginasd',
         component: Demo,
     },
+    
+    
+    
     
     
 ]

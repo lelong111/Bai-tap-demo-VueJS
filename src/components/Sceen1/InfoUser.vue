@@ -1,69 +1,20 @@
 <template>
   <div class="info_user">
     <div class="create_user">
-        <!-- <button class="btn btn-info btn-lg btn_create_user">Tạo người dùng</button> -->
-        <!-- <div class="modal">
+        <button  class="btn btn-info btn-lg btn_create_user">Tạo người dùng</button>
+
+        <button @click="clickModal()" class='btn'>Open Modal</button>
+        <div class="modal">
             <div class="modal-content">
-                <div>
-                    <span class="close">&times;</span>
-                    <p>Thông tin cá nhân</p>
-                </div>
-                <div>
-                    <input type="text"/>
-                </div>
+                <span class="close">&times;</span>
+                <p>Modal Box</p>
             </div>
-        </div> -->
-        <!-- <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-       <!-- Button trigger modal -->
-       <div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
         </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
 
     </div>
     <div class="tabbar">
-        <div class="tabbar_1"><router-link to="/home/list-users">Danh sách người dùng</router-link></div>
-        <div class="tabbar_2"><router-link to="/home/ghi-chu/test">Ghi chú</router-link></div>
+        <div class="tabbar_1 active2" @click="clickMe()"><router-link to="/home/list-users">Danh sách người dùng</router-link></div>
+        <div class="tabbar_2" @click="clickMe()"><router-link to="/home/ghi-chu/test">Ghi chú</router-link></div>
     </div>
     <div class="table-view">
         <table>
@@ -88,23 +39,92 @@
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
     data() {
         return {
 
         }
     },
-
+    
     props: {
         listUser: Object,
 
     },
     methods: {
+        clickMe() {
+            $(document).ready(function(){
+                $('.tabbar div').click(function(){
+                $('.tabbar div').removeClass("active2");
+                $(this).addClass("active2");
+            });
+            });
+        },
+        clickModal() {
+            $(document).ready(function () {
+            var modal = $('.modal');
+            var btn = $('.btn');
+            var span = $('.close');
+
+            btn.click(function () {
+                modal.show();
+            });
+
+            span.click(function () {
+                modal.hide();
+            });
+
+            $(window).on('click', function (e) {
+                if ($(e.target).is('.modal')) {
+                modal.hide();
+                }
+            });
+            });
+        }
     }
 }
 </script>
 
 <style scoped>
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
 .create_user {
     width: 200px;
     border-radius: 6px; 
@@ -145,6 +165,7 @@ export default {
     margin-top: 18%;
     border-left: 1px solid #CFCFCF;
     border-right: 1px solid #CFCFCF;
+    border-top: 1px solid #CFCFCF;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -157,13 +178,9 @@ export default {
 }
 .tabbar .tabbar_1 {
     position: relative;
-    
 }
-.tabbar .tabbar_1:active {
-    border-top: 4px solid #DD7A01;
-}
-.tabbar .tabbar_2:active {
-    border-top: 4px solid #DD7A01;
+.active2 {
+    border-top: 4px solid #DD7A01 !important;
 }
 .tabbar .tabbar_1 a{
     position: absolute;
@@ -172,7 +189,6 @@ export default {
 }
 .tabbar .tabbar_2 {
     position: relative;
-    border-top: 1px solid #CFCFCF;
 }
 .tabbar .tabbar_2 a{
     position: absolute;

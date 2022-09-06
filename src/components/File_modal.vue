@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div :id="id">
         <div class="modal-content">
             <slot name="title"></slot>
             <slot name="context"></slot>
@@ -14,11 +14,39 @@
 
 <script>
 export default {
-    methods: {
-        close() {
-            this.$emit("close")
-        }
+  data()  {
+    return {
+      id: null,
+      tag: null
     }
+  },
+  created() {
+    this.id = Math.floor(Math.random()*10000)
+
+    if(Window.modalIndex) {
+      Window.modalIndex++
+    } else {
+      Window.modalIndex = 10
+    }
+  },
+  mounted() {
+    this.tag = document.getElementById(this.id)
+    this.tag.getElementByClassName("modal")[0].style.zIndex =  Window.modalIndex+1
+    this.tag.getElementByClassName("modal")[0].classList.add("animatetop")
+    var div = document.createElement("div");
+    div.classList.add("background-drop", this.id)
+    div.style.zIndex = Window.modalIndex
+    document.getElementsByTagName("body")[0].appendChild(div)
+  },
+  beforceDestroy() {
+    var div = document.getElementsByClassName(this.id)[0]
+    document.getElementsByTagName("body")[0].removeChild(div)
+  },
+  methods: {
+      close() {
+          this.$emit("close")
+      }
+  }
 }
 </script>
 

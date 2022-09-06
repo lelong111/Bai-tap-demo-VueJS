@@ -75,19 +75,20 @@ export default {
 .container {
   display: flex;
   width: 100%;
-  height: 930px;
+  height: 948px;
   background: #FFFCFC;
 }
 .content {
   display: flex;
-  margin-top: 4%;
+  margin-top: 5.5%;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+  height: 88.5%;
 }
 
 .menu-left {
-  margin-top: 5%;
+  margin-top: 5.1%;
 }
 @media only screen and (min-height: 1080px) {
   .container {
@@ -95,10 +96,10 @@ export default {
   }
   .content {
     height: 89.6%;
-    margin-top: 5.2%;
+    margin-top: 5.7%;
   }
   .menu-left {
-    margin-top: 5.2%;
+    margin-top: 5%;
   }
 
 }
