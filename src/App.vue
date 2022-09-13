@@ -1,22 +1,14 @@
 <template>
   <div>
-    <!-- <LogIn /> -->
     <router-view></router-view>
-    <!-- <home /> -->
   </div>
-  <!-- <LogIn /> -->
 </template>
 
 <script>
-// import LogIn from './components/LogIn.vue'
-// import Home from './components/Home.vue';
 export default {
   name: 'App',
-  // components: {
-  //   Home,
-  // },
-  computed: {
-
+  beforeCreate() {
+    
   }
 };
 </script>

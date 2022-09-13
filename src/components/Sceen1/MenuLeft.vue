@@ -8,7 +8,7 @@
         <div @click="clickme()"><router-link to="/home/menu/menu-null"><img src='../../assets/Vector3.png'/></router-link></div>
     </div>
     <div class="icon-menu-logout">
-        <div><img src='../../assets/logout.png'/></div>
+        <div><a href="#" @click="logout"><img src='../../assets/logout.png'/></a></div>
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
           $(this).addClass("active");
       });
       });
+    },
+    logout() {
+      localStorage.clear();
+      this.$router.push('/login')
     }
   }
 }
@@ -36,7 +40,7 @@ export default {
 }
 .menu-left {
     width: 80px;
-    height: 90%;
+    height: 92%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -74,6 +78,7 @@ export default {
     top: 83.1%;
     left: 15%
 }
+
 @media only screen and (min-height: 1080px) {
   .menu-left{
     height: 91%;
@@ -83,6 +88,17 @@ export default {
   }
   .menu-left  .icon-menu-logout {
     height: 68.3%;
+  }
+}
+@media only screen and (width: 1280px) and (height: 1080px) {
+  
+}
+@media only screen and (width: 1280px) and (height: 720px) {
+  .menu-left {
+    height: 91%;
+  }
+  .menu-left .icon-menu-logout div {
+    top: 75%;
   }
 }
 </style>

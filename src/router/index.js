@@ -2,7 +2,6 @@ import LogIn from '../components/LogIn.vue';
 import Home from '../components/Home.vue';
 import ScreenWhite from '../components/Sceen1/ScreenWhite.vue';
 import ScreenWhite2 from '../components/Sceen1/ScreenWhite2.vue';
-import Demo from '../components/DemoVuex.vue';
 import { createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
@@ -32,20 +31,18 @@ const routes = [
             {
                 path: 'menu/:menu',
                 component: ScreenWhite2,
-            }
+            },
+            {
+                path: 'home',
+                redirect: '/home'
+            },
+            {
+                path: ':search',
+                component: Home,
+            },
             
         ],
     },
-    {
-        path: '/abc',
-        name: 'Loginasd',
-        component: Demo,
-    },
-    
-    
-    
-    
-    
 ]
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),

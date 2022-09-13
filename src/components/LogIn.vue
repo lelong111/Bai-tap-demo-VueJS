@@ -17,11 +17,10 @@
                     <!-- <label class="lb-checkbox">
                         <input type="checkbox" class="checkbox-1" v-model="checked" id="checked"/>
                     </label> -->
-                    <label class="container">One
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
-</label>
-                    <label for="checked">Ghi nhớ</label>
+                    <label class="input-checkbox">Ghi nhớ
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
                     <button @click="login()">Đăng nhập</button>
                    
                 </div>
@@ -35,6 +34,7 @@
 <script>
 import axios from 'axios';
 import { ref } from 'vue'
+
 export default {
     data() {
         return {
@@ -46,12 +46,16 @@ export default {
     methods: {
         login() {
             var md5 = require('md5');
-
             var check = false;
+            console.log(this.listUser);
             this.listUser.forEach((e) =>{
                 if (this.user == e.email && md5(this.pass) == e.password) {
                     check = true;
                     localStorage.setItem("fullname", e.fullname);
+                    localStorage.setItem("email", this.user)
+                    localStorage.setItem("password", this.pass)
+                    localStorage.setItem("check", true)
+                    localStorage.setItem("profile_picture", e.profile_picture)
                 }
             })
             if (check == true) {
@@ -77,7 +81,7 @@ export default {
         var listUser = ref([])
         const getUser = async () => {
             try {
-                const res = await axios.get('https://api.npoint.io/b48260446eb9e93268d3')
+                const res = await axios.get('https://api.npoint.io/1e9931e8599a84c3abbd')
                 listUser.value = res.data;
             } catch (error) {
                 console.log(error)
@@ -92,21 +96,28 @@ export default {
 </script>
 <style scoped>
 
-.container {
+/* css checkbox */
+.input-checkbox {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 40px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family: 'Poppins', sans-serif;;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #0070D2;
+  margin-top: 18px;
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.input-checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -121,17 +132,20 @@ export default {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #fff;
+  background-color: #eee;
+  background: #FFFCFC;
+  border: 2px solid #CECDCD;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #fff;
-  border: 1px solid black;
+.input-checkbox:hover input ~ .checkmark {
+  background-color: #FFFFFF;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.input-checkbox input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -143,12 +157,12 @@ export default {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.input-checkbox input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.input-checkbox .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -159,6 +173,8 @@ export default {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/*  */
 
 
 .LogIn_Page {
@@ -288,6 +304,14 @@ export default {
 @media only screen and (height: 1080px) and (width: 1920px){
     .LogIn_Page  {
         height: 1080px;
+    }
+    .checkmark {
+        height: 30px;
+        width: 30px;
+    }
+    .input-checkbox .checkmark:after {
+        left: 12px;
+        top: 7px;
     }
 }
 @media only screen and (height: 900px) and (width: 1600px){

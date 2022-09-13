@@ -1,95 +1,75 @@
 <template>
-    <div class="menu_user">
-        <div class="menu_user_1">
-            <div class="btn_info_user">
-                <router-link to="/home/home">Thông tin khách hàng</router-link>
+<div class="menu_user_3"> 
+    <div class="info_user">
+                <div class="avatar_user" id="avatar_user"></div>
+                <div class="detail_user">
+                    <div class="name_user">
+                        <p> {{ nameUser ?? fullname }}</p>
+                    </div>
+                    <div class="name_tags">
+                        <ul>
+                            <li><p>VIP</p></li>
+                            <li><p>ACTIVE</p></li>
+                            <li><p>TPIN</p></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="input_search">
-                <router-link to="/home/search">Tìm kiếm</router-link>
-            </div>
-        </div>
+    <div class="icon_show_info">
+        <ul>
+            <li>
+                <img src="../../assets/IconUser/Vector.png"/>
+                <label>Mail {{ detailUser1 ? detailUser1.email : ''}}</label>
+            </li>
+            <li>
+                <img src="../../assets/IconUser/Vector1.png"/>
+                <label>Số CMND  {{ detailUser1 ? detailUser1.id_card : ''}}</label>
+            </li>
+            <li>
+                <img src="../../assets/IconUser/Vector2.png"/>
+                <label>Số điện thoại {{ detailUser1 ? detailUser1.phone_number : '' }}</label>
+            </li>
+            <li>
+                <img src="../../assets/IconUser/Vector3.png"/>
+                <label>Địa chỉ {{ detailUser1 ? detailUser1.address : '' }}</label>
+            </li>
+        </ul>
     </div>
+</div>   
 </template>
-
 <script>
 
-export default {
+
+export default ({
     data() {
         return {
-            fullname: localStorage.getItem("fullname")
+            fullname: localStorage.getItem("fullname"),
+            avatar_user: localStorage.getItem("profile_picture"),
         }
     },
     props: {
         detailUser1: Object,
+        nameUser: String
     },
-    watch: {
-        detailUser() {
-            console.log(this.detailUser)
+    mounted() {
+        const setAvatar = () => {
+            document.getElementsByID("avatar_user").style.background = "url('https://cdn-icons-png.flaticon.com/512/1053/1053244.png?w=360')"   
         }
-    }
-}
+    },
+    setup() {
+        
+    },
+})
 </script>
-<style scoped>
-.menu_user {
-    width: 500px;
-}
-.menu_user .menu_user_1 {
-    height: 80px;
-    display: flex;
-    border-bottom: 2px solid #DF6106;
-}
-.menu_user .menu_user_1 .btn_info_user {
-    width: 250px;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    color: #DF6106;
-    text-align: center;
-    padding-top: 22px;
-    background: linear-gradient(180deg, rgba(250, 200, 164, 0.296) 0%, rgba(255, 182, 33, 0) 100%);
-}
-.menu_user .menu_user_1 .input_search {
-    width: 250px;
-    border: 1px solid #CFCFCF;
-    
-}
-.menu_user .menu_user_1 .input_search a {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    color: #A4A4A4;
-    padding-left: 35px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 24px;
-}
 
-.btn_info_user a {
-    text-decoration: none;
-    color: #DF6106;
-}
-.icon_menu {
-    width: 100%;
-    height: 100px;
-}
-.icon_menu ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style-type: none;
-    margin-top: 25px;
-}
+<style scoped>
 .menu_user_3 {
     width: 100%;
     height: 100px;
     margin-left: 20px;
     margin-top: 10%;
 }
-.avatar_user{
+#avatar_user{
     width: 100px;
     height: 100px;
     background-color: #FFFFFF;
@@ -203,9 +183,6 @@ export default {
   }
   .menu_user_3 {
     margin-top: 17.1%;
-  }
-  .menu_user .menu_user_1 .input_search {
-    /* widows: 49.5; */
   }
 }
 @media only screen and (width: 1600px) and (height: 900px) {
@@ -404,4 +381,3 @@ export default {
     }
 }
 </style>
-  

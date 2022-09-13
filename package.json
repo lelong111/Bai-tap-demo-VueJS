@@ -15,6 +15,7 @@
     "firebase": "^9.9.4",
     "jquery": "^3.6.1",
     "md5": "^2.3.0",
+    "vee-validate": "^4.6.7",
     "vue": "^3.2.13",
     "vue-router": "^4.1.4",
     "vuejs-jwt": "^1.1.0",
