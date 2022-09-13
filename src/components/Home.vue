@@ -141,7 +141,7 @@ export default {
         const router = useRouter();
         const getUser = async () => {
             try {
-                const res = await axios.get('https://api.npoint.io/097f32d23d2cbe51abc2')
+                const res = await axios.get('https://api.npoint.io/1e9931e8599a84c3abbd')
                 listUser.value = res.data;
             } catch (error) {
                 console.log(error)
